@@ -1,4 +1,4 @@
-package com.udacity.jdnd.course3.critter.user.entity;
+package com.udacity.jdnd.course3.critter.user.employee;
 
 import com.udacity.jdnd.course3.critter.user.DayOfWeek;
 import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
@@ -17,14 +17,14 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ElementCollection(targetClass = EmployeeSkill.class)
+    @ElementCollection
     @Enumerated(EnumType.STRING)
     private Set<EmployeeSkill> skills;
 
     @Nationalized
     private String name;
 
-    @ElementCollection(targetClass = DayOfWeek.class)
+    @ElementCollection
     @Enumerated(EnumType.STRING)
     private Set<DayOfWeek> daysAvailable;
 }
