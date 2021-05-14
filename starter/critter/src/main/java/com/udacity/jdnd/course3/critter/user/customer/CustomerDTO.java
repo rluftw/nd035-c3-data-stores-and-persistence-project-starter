@@ -44,9 +44,6 @@ public class CustomerDTO {
     }
 
     public static List<CustomerDTO> convertEntityListToDTOList(List<Customer> customers) {
-        return customers
-                .stream()
-                .map(customer -> convertEntityToDTO(customer))
-                .collect(Collectors.toList());
+        return customers.stream().map(customer -> convertEntityToDTO(customer)).collect(Collectors.toList());
     }
 }
