@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +36,7 @@ public class PetDTO {
         return petDTO;
     }
 
-    public static List<PetDTO> convertListEntityToListDTO(List<Pet> pets) {
-        return pets.stream().map(pet -> convertEntityToDTO(pet)).collect(Collectors.toList());
+    public static List<PetDTO> convertListEntityToListDTO(Collection<Pet> pets) {
+        return pets.stream().map(PetDTO::convertEntityToDTO).collect(Collectors.toList());
     }
 }

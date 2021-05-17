@@ -1,6 +1,7 @@
 package com.udacity.jdnd.course3.critter.pet;
 
 import com.udacity.jdnd.course3.critter.user.customer.Customer;
+import com.udacity.jdnd.course3.critter.user.customer.CustomerNotFoundException;
 import com.udacity.jdnd.course3.critter.user.customer.CustomerService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +32,11 @@ public class PetService {
 
     public List<Pet> getAllPets() {
         return petRepository.findAll();
+    }
+
+    public Pet getPet(Long petId) {
+        return petRepository
+                .findById(petId)
+                .orElseThrow(() -> new PetNotFoundException("Unable to find pet with id " + petId));
     }
 }
