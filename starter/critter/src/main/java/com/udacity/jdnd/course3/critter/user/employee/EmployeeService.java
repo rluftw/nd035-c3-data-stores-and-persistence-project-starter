@@ -14,4 +14,14 @@ import javax.transaction.Transactional;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    public Employee saveEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    public Employee getEmployeeById(Long employeeId) {
+        return employeeRepository
+                .findById(employeeId)
+                .orElseThrow(() -> new EmployeeNotFoundException("Unable to find customer with id " + employeeId));
+    }
 }

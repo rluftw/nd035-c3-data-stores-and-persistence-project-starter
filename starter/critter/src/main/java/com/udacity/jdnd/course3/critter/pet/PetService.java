@@ -1,7 +1,6 @@
 package com.udacity.jdnd.course3.critter.pet;
 
 import com.udacity.jdnd.course3.critter.user.customer.Customer;
-import com.udacity.jdnd.course3.critter.user.customer.CustomerNotFoundException;
 import com.udacity.jdnd.course3.critter.user.customer.CustomerService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +25,7 @@ public class PetService {
         Customer customer = customerService.getCustomerById(customerId);
         pet.setCustomer(customer);
         pet = petRepository.save(pet);
-        customerService.addPet(pet, customerId);
+        customerService.savePet(pet, customerId);
         return pet;
     }
 

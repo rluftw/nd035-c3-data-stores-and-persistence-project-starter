@@ -24,7 +24,7 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public void addPet(Pet pet, Long customerId) {
+    public void savePet(Pet pet, Long customerId) {
         Customer customer = getCustomerById(customerId);
         if (customer.getPets() == null) {
             customer.setPets(new HashSet<Pet>());

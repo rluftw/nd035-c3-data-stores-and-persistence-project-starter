@@ -1,6 +1,11 @@
 package com.udacity.jdnd.course3.critter.user.employee;
 
 import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
+import com.udacity.jdnd.course3.critter.user.customer.CustomerDTO;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 import java.time.DayOfWeek;
 import java.util.Set;
@@ -9,41 +14,22 @@ import java.util.Set;
  * Represents the form that employee request and response data takes. Does not map
  * to the database directly.
  */
+@Getter @Setter @NoArgsConstructor
 public class EmployeeDTO {
     private long id;
     private String name;
     private Set<EmployeeSkill> skills;
     private Set<DayOfWeek> daysAvailable;
 
-    public long getId() {
-        return id;
+    public static Employee convertDTOToEntity(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDTO, employee);
+        return employee;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<EmployeeSkill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Set<EmployeeSkill> skills) {
-        this.skills = skills;
-    }
-
-    public Set<DayOfWeek> getDaysAvailable() {
-        return daysAvailable;
-    }
-
-    public void setDaysAvailable(Set<DayOfWeek> daysAvailable) {
-        this.daysAvailable = daysAvailable;
+    public static EmployeeDTO convertEntityToDTO(Employee employee) {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        BeanUtils.copyProperties(employee, employeeDTO);
+        return employeeDTO;
     }
 }
