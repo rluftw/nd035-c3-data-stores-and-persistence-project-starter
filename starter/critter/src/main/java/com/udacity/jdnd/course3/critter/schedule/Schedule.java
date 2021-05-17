@@ -22,16 +22,16 @@ public class Schedule {
     @ManyToMany
     @JoinTable(
         name = "employee_schedule",
-        joinColumns = { @JoinColumn(name = "employee_id") },
-        inverseJoinColumns = { @JoinColumn(name = "schedule_id") }
+        joinColumns = @JoinColumn(name = "schedule_id"),
+        inverseJoinColumns = @JoinColumn(name = "employee_id")
     )
     private List<Employee> employees;
 
     @ManyToMany
     @JoinTable(
         name = "pet_schedule",
-        joinColumns = { @JoinColumn(name = "pet_id") },
-        inverseJoinColumns = { @JoinColumn(name = "schedule_id") }
+        joinColumns = @JoinColumn(name = "schedule_id"),
+        inverseJoinColumns = @JoinColumn(name = "pet_id")
     )
     private List<Pet> pets;
 

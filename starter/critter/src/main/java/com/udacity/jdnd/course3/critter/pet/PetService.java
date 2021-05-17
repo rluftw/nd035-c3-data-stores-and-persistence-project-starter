@@ -33,7 +33,7 @@ public class PetService {
         return petRepository.findAll();
     }
 
-    public Pet getPet(Long petId) {
+    public Pet getPetById(Long petId) {
         return petRepository
                 .findById(petId)
                 .orElseThrow(() -> new PetNotFoundException("Unable to find pet with id " + petId));

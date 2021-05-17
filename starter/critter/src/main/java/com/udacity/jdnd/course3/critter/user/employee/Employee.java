@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.user.employee;
 
+import com.udacity.jdnd.course3.critter.schedule.Schedule;
 import com.udacity.jdnd.course3.critter.user.DayOfWeek;
 import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,4 +29,7 @@ public class Employee {
     @ElementCollection
     @Enumerated(EnumType.STRING)
     private Set<DayOfWeek> daysAvailable;
+
+    @ManyToMany(mappedBy = "employees")
+    private List<Schedule> schedules;
 }
