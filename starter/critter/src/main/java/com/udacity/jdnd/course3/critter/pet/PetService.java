@@ -38,4 +38,9 @@ public class PetService {
                 .findById(petId)
                 .orElseThrow(() -> new PetNotFoundException("Unable to find pet with id " + petId));
     }
+
+    public List<Pet> getPetsByOwnerId(Long ownerId) {
+        Customer customer = customerService.getCustomerById(ownerId);
+        return customer.getPets();
+    }
 }
