@@ -1,6 +1,5 @@
 package com.udacity.jdnd.course3.critter.user.employee;
 
-import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

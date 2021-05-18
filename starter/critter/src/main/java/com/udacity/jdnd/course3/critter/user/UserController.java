@@ -4,9 +4,7 @@ import com.udacity.jdnd.course3.critter.pet.PetService;
 import com.udacity.jdnd.course3.critter.user.customer.Customer;
 import com.udacity.jdnd.course3.critter.user.customer.CustomerDTO;
 import com.udacity.jdnd.course3.critter.user.customer.CustomerService;
-import com.udacity.jdnd.course3.critter.user.employee.Employee;
-import com.udacity.jdnd.course3.critter.user.employee.EmployeeDTO;
-import com.udacity.jdnd.course3.critter.user.employee.EmployeeService;
+import com.udacity.jdnd.course3.critter.user.employee.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

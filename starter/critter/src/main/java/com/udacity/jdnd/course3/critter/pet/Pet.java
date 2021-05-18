@@ -32,5 +32,7 @@ public class Pet {
     private String name;
 
     private LocalDate birthDate;
+    
+    @Column(length = 400)
     private String notes;
 }
