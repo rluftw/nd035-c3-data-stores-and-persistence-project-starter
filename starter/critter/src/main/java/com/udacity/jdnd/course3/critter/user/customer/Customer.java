@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
@@ -17,7 +17,7 @@ public class Customer {
     private Long id;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Pet> pets;
+    private List<Pet> pets;
 
     @Nationalized
     private String name;

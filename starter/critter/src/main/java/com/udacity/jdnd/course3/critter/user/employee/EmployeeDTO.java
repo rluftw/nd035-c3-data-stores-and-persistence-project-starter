@@ -1,14 +1,15 @@
 package com.udacity.jdnd.course3.critter.user.employee;
 
 import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
-import com.udacity.jdnd.course3.critter.user.customer.CustomerDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 import java.time.DayOfWeek;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Represents the form that employee request and response data takes. Does not map
@@ -31,5 +32,9 @@ public class EmployeeDTO {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         BeanUtils.copyProperties(employee, employeeDTO);
         return employeeDTO;
+    }
+
+    public static List<EmployeeDTO> convertEntityListToDTOList(List<Employee> employees) {
+        return employees.stream().map(employee -> convertEntityToDTO(employee)).collect(Collectors.toList());
     }
 }

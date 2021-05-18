@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Transactional
@@ -27,7 +25,7 @@ public class CustomerService {
     public void savePet(Pet pet, Long customerId) {
         Customer customer = getCustomerById(customerId);
         if (customer.getPets() == null) {
-            customer.setPets(new HashSet<Pet>());
+            customer.setPets(new ArrayList<>());
         }
         customer.getPets().add(pet);
     }

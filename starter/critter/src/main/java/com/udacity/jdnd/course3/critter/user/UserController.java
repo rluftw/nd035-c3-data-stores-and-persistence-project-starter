@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.DayOfWeek;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -70,7 +71,12 @@ public class UserController {
 
     @GetMapping("/employee/availability")
     public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeRequestDTO employeeDTO) {
-        throw new UnsupportedOperationException();
+        Set<EmployeeSkill> skills = employeeDTO.getSkills();
+        Set<DayOfWeek> dayOfWeeks =  new HashSet<>();
+        dayOfWeeks.add(employeeDTO.getDate().getDayOfWeek());
+
+        List<Employee> employeesWithSkills = employeeService.findEmployeeForService(skills, dayOfWeeks);
+        return EmployeeDTO.convertEntityListToDTOList(employeesWithSkills);
     }
 
 }

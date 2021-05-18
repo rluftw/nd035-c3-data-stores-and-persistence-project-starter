@@ -1,6 +1,5 @@
 package com.udacity.jdnd.course3.critter.user.customer;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.udacity.jdnd.course3.critter.pet.Pet;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -33,7 +31,7 @@ public class CustomerDTO {
     public static CustomerDTO convertEntityToDTO(Customer customer) {
         CustomerDTO customerDTO = new CustomerDTO();
         BeanUtils.copyProperties(customer, customerDTO);
-        Set<Pet> pets = customer.getPets();
+        List<Pet> pets = customer.getPets();
 
         if (pets != null) {
             List<Long> petIds = new ArrayList<>();

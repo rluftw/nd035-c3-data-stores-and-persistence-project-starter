@@ -61,4 +61,8 @@ public class ScheduleService {
         Customer customer = customerService.getCustomerById(customerId);
         return scheduleRepository.findSchedulesByPetsIn(customer.getPets());
     }
+
+    public List<Schedule> getAllSchedules() {
+        return scheduleRepository.findAll();
+    }
 }
